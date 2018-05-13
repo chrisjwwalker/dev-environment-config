@@ -1,0 +1,10 @@
+[user]
+        name = abc
+        email = xyz
+
+[alias]
+        lol = log --graph --decorate --pretty=oneline --abbrev-commit
+        lola = log --graph --decorate --pretty=oneline --abbrev-commit --al
+
+[core]
+        pager = less -R

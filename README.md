@@ -49,12 +49,22 @@ It will...
 - Setup git config and SSH
   - Copy reference gitconfig and add the specified username and email
   - Create a new SSH key using the specified email
+- Finally
+  - Copies the generated SSH key to the clipboard, ready to be copied into github
+
+## scripts/zsh-install.sh
 - ZSH
   - Install ZSH and set the default shell as ZSH
   - Install powerline shell
   - Copy and source .zshrc
-- Finally
-  - Copies the generated SSH key to the clipboard, ready to be copied into github
+
+Foot notes
+==========
+- When Avira AV installs a dialogue box will appear asking for permission to run.
+- When Oversight installs the script will hang. Open Oversight preferences and click run in head less mode, this will restart the oversight monitor and make the install script continue.
+- Virtual box will claim to fail installation. Go into System preferences > Security and privacy > General, then click allow towards the bottom of the window.
+- Customisations will take a while to download. This is normal, they are large.
+- The ZSH install script has to been installed separately.
 
 
 License

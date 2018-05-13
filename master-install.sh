@@ -61,10 +61,6 @@ echo "> Git config and SSH"
 echo "  > Copy reference .gitconfig and add specifed username and email"
 echo "  > Create a new SSH key using the specifed email"
 echo "===================================================================="
-echo "> ZSH"
-echo "  > Install ZSH"
-echo "  > Powerline shell"
-echo "  > Copy and source .zshrc"
 
 scripts/manager-install.sh
 scripts/sdk-install.sh
@@ -73,7 +69,6 @@ scripts/gui-apps-install.sh
 scripts/system-settings-install.sh
 scripts/customisation-install.sh
 scripts/ssh-git-install.sh
-scripts/zsh-install.sh
 
 more ~/.ssh/id_rsa.pub | pbcopy
 

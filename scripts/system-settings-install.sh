@@ -10,4 +10,4 @@ echo "Setting dock order"
 rm ~/Library/Preferences/com.apple.dock.plist
 cp dotfiles/com.apple.dock.plist ~/Library/Preferences/com.apple.dock.plist
 
-killall dock
+killall Dock

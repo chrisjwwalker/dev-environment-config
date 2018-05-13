@@ -9,8 +9,8 @@ echo "======================================================"
 $username
 $email
 
-cp dotfiles/.gitconfig ~/.gitconfig
-cp dotfiles/config ~/.ssh/config
+cp `pwd`/dotfiles/.gitconfig ~/.gitconfig
+cp `pwd`/dotfiles/config ~/.ssh/config
 
 echo "What is github user name?"
 read username

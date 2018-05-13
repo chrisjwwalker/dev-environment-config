@@ -11,7 +11,7 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 sudo pip install powerline-shell
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 
-cp dotfiles/.zshrc ~/.zshrc
+cp `pwd`/dotfiles/.zshrc ~/.zshrc
 source ~/.zshrc
 
 echo "======================================================"

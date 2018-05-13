@@ -66,14 +66,14 @@ echo "  > Install ZSH"
 echo "  > Powerline shell"
 echo "  > Copy and source .zshrc"
 
-manager-install.sh
-sdk-install.sh
-tools-install.sh
-gui-apps-install.sh
-system-settings-install.sh
-customisation-install.sh
-ssh-git-install.sh
-zsh-install.sh
+scripts/manager-install.sh
+scripts/sdk-install.sh
+scripts/tools-install.sh
+scripts/gui-apps-install.sh
+scripts/system-settings-install.sh
+scripts/customisation-install.sh
+scripts/ssh-git-install.sh
+scripts/zsh-install.sh
 
 more ~/.ssh/id_rsa.pub | pbcopy
 

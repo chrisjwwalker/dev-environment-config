@@ -1,6 +1,9 @@
 # dev-environment-config
 
-This repository contains a set of bash scripts to setup an install of MacOS for development
+This repository contains a set of bash scripts to setup an install of MacOS for development.
+
+## Recommendations
+Anyone is free to utilise this script to setup their MacOS environment. This specific script has been tailored for myself, therefore it is recommended to first fork, review and tailor to your needs.
 
 ## master-install.sh
 
@@ -62,10 +65,9 @@ Foot notes
 ==========
 - When Avira AV installs a dialogue box will appear asking for permission to run.
 - When Oversight installs the script will hang. Open Oversight preferences and click run in head less mode, this will restart the oversight monitor and make the install script continue.
-- Virtual box will claim to fail installation. Go into System preferences > Security and privacy > General, then click allow towards the bottom of the window.
+- Virtual box will claim to fail installation. Go into System preferences > Security and privacy > General, then click allow towards the bottom of the window. (For safety you can rerun)
 - Customisations will take a while to download. This is normal, they are large.
-- The ZSH install script has to been installed separately.
-
+- The ZSH install script has to been installed separately followed by the zsh-customisations-install script
 
 License
 =======

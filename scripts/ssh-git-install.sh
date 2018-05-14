@@ -11,6 +11,7 @@ $email
 
 cp `pwd`/dotfiles/.gitconfig ~/.gitconfig
 cp `pwd`/dotfiles/config ~/.ssh/config
+echo "====== Copied .gitconfig and ssh config files ======"
 
 echo "What is github user name?"
 read username
@@ -20,9 +21,11 @@ read email
 
 sed -i -e 's|'"abc"'|'"$username"'|g' ~/.gitconfig
 sed -i -e 's|'"xyz"'|'"$email"'|g' ~/.gitconfig
+echo "====== Updated .gitconfig file with github username and email ======"
 
 eval "$(ssh-agent -s)"
 
 ssh-keygen -t rsa -b 4096 -C "$email"
 
 ssh-add -k ~/.ssh/id_rsa
+echo "====== Generated new SSH key ======"

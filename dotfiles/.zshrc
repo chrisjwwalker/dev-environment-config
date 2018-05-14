@@ -569,14 +569,6 @@ alias caskit='brew update; brew cask upgrade; brew cask cleanup; brew cask docto
 #Other
 alias deets="exa -bghHliSal"
 
-#HMRC
-export WORKSPACE="$HOME/Applications/hmrc"
-alias hmrc="cd $WORKSPACE"
-alias booty="sm --start VAT_REG_ALL PAYE_REG_ALL SCRS_ALL -f"
-alias paye="sm --start PAYE_REG_ALL -f"
-alias icl="sm --start ICL_ALL -f"
-alias vat="sm --start VAT_REG_ALL -f"
-
 #SBT Projects
 alias coverage="sbt clean coverage scalastyle test:scalastyle it:scalastyle test it:test coverageReport"
 alias cjww="cd ~/Applications/cjww-dev"
@@ -590,5 +582,5 @@ perftest() {
 }
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/cjwalks/.sdkman"
+export SDKMAN_DIR="/Users/`whoami`/.sdkman"
 [[ -s "/Users/`whoami`/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/`whoami`/.sdkman/bin/sdkman-init.sh"

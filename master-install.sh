@@ -70,6 +70,7 @@ scripts/system-settings-install.sh
 scripts/customisation-install.sh
 scripts/ssh-git-install.sh
 
+echo "====== Copying SSH key to clipboard ======"
 more ~/.ssh/id_rsa.pub | pbcopy
 
 echo "======================================================"

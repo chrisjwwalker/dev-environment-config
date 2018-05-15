@@ -10,40 +10,40 @@ Anyone is free to utilise this script to setup their MacOS environment. This spe
 This is the main install script, run this to completely setup your mac.
 
 It will...
-- Install Xcode CLI, Homebrew and SDK man
+- Install Xcode CLI, [Homebrew](https://brew.sh/) and [sdkman](http://sdkman.io/)
 - Install Java 8, Scala and SBT 0.13.15
 - Install Tools
-  - exa
-  - geckodriver
-  - git
-  - heroku
-  - mas
-  - neofetch
-  - tldr
+  - [exa](https://github.com/ogham/exa)
+  - [geckodriver](https://github.com/mozilla/geckodriver)
+  - [git](https://git-scm.com/)
+  - [heroku](https://devcenter.heroku.com/articles/heroku-cli)
+  - [mas](https://github.com/mas-cli/mas)
+  - [neofetch](https://github.com/dylanaraps/neofetch)
+  - [tldr](https://tldr.sh/)
   - typesafe-activator
 - Install GUI apps
-  - Aerial
-  - Atom
-  - Avira AV
-  - Caffeine
-  - Choose Wisely
-  - Docker
-  - Firefox
-  - Google Chrome
-  - Intellij Ultimate
-  - Kitematic
-  - Opera
-  - Oversight
-  - Postman
-  - Robo 3T
-  - Slack
-  - Steam
-  - Virtualbox
+  - [Aerial](https://github.com/JohnCoates/Aerial)
+  - [Atom](https://atom.io/)
+  - [Avira AV](https://www.avira.com/en/free-antivirus-mac)
+  - [Caffeine](http://lightheadsw.com/caffeine/)
+  - [Choose Wisely](http://macappstore.org/choose-wisely/)
+  - [Docker](https://www.docker.com/)
+  - [Firefox](https://www.mozilla.org/en-GB/firefox/new/)
+  - [Google Chrome](https://www.google.co.uk/chrome/)
+  - [Intellij Ultimate](https://www.jetbrains.com/idea/)
+  - [Kitematic](https://kitematic.com/)
+  - [Opera](https://www.opera.com/)
+  - [Oversight](https://objective-see.com/products/oversight.html)
+  - [Postman](https://www.getpostman.com/)
+  - [Robo 3T](https://robomongo.org/)
+  - [Slack](https://slack.com/)
+  - [Steam](https://store.steampowered.com/)
+  - [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
 - Download customisations
-  - Powerline fonts
-  - Nerd fonts
-  - OSX Terminal themes
-  - Sublime Monokai for Intellij
+  - [Powerline fonts](https://github.com/powerline/fonts)
+  - [Nerd fonts](https://github.com/ryanoasis/nerd-fonts)
+  - [OSX Terminal themes](https://github.com/lysyi3m/osx-terminal-themes)
+  - [Sublime Monokai for Intellij](https://github.com/y3sh/Intellij-Colors-Sublime-Monokai)
   - Suppress the last logged in on shell
 - Setup git config and SSH
   - Copy reference gitconfig and add the specified username and email
@@ -53,8 +53,8 @@ It will...
 
 ## scripts/zsh-install.sh
 - ZSH
-  - Install ZSH and set the default shell as ZSH
-  - Install powerline shell
+  - [Install ZSH and set the default shell as ZSH](http://ohmyz.sh/)
+  - [Install powerline shell](https://github.com/b-ryan/powerline-shell)
   - Copy and source .zshrc
 
 Foot notes

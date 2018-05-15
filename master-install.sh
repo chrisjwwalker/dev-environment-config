@@ -66,7 +66,7 @@ scripts/manager-install.sh
 scripts/sdk-install.sh
 scripts/tools-install.sh
 scripts/gui-apps-install.sh
-scripts/system-settings-install.sh
+#scripts/system-settings-install.sh
 scripts/customisation-install.sh
 scripts/ssh-git-install.sh
 

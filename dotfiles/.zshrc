@@ -1,23 +1,4 @@
 # =============================================================================
-#                                   Functions
-# =============================================================================
-powerlevel9k_random_color(){
-	local code
-	#for code ({000..255}) echo -n "$%F{$code}"
-	#code=$[${RANDOM}%11+10]    # random between 10-20
-	code=$[${RANDOM}%211+20]    # random between 20-230
-	printf "%03d" $code
-}
-
-zsh_wifi_signal(){
-	local signal=$(nmcli -t device wifi | grep '^*' | awk -F':' '{print $6}')
-    local color="yellow"
-    [[ $signal -gt 75 ]] && color="green"
-    [[ $signal -lt 50 ]] && color="red"
-    echo -n "%F{$color}\uf1eb" # \uf1eb is 
-}
-
-# =============================================================================
 #                                   Variables
 # =============================================================================
 export LANG="en_US.UTF-8"
@@ -39,87 +20,38 @@ source ~/.zplug/init.zsh
 # zplug
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 
-# oh-my-zsh
-#zplug "zplug/zplug"
-#zplug "robbyrussell/oh-my-zsh", use:"lib/*.zsh"
-
 # Miscellaneous commands
-#zplug "andrewferrier/fzf-z"
-zplug "k4rthik/git-cal",  as:command
-zplug "peco/peco",        as:command, from:gh-r
-zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf, \
-	use:"*${(L)$(uname -s)}*amd64*"
-zplug "junegunn/fzf", use:"shell/*.zsh", as:plugin
+#zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf, \
+#	use:"*${(L)$(uname -s)}*amd64*"
+#zplug "junegunn/fzf", use:"shell/*.zsh", as:plugin
 
 # Enhanced cd
-zplug "b4b4r07/enhancd", use:init.sh
-
-# Bookmarks and jump
-zplug "jocelynmallon/zshmarks"
+#zplug "b4b4r07/enhancd", use:init.sh
 
 # Enhanced dir list with git features
-zplug "supercrabtree/k"
+#zplug "supercrabtree/k"
 
 # Jump back to parent directory
-zplug "tarrasch/zsh-bd"
-
-# Simple zsh calculator
-zplug "arzzen/calc.plugin.zsh"
+#zplug "tarrasch/zsh-bd"
 
 # Directory colors
-zplug "seebi/dircolors-solarized", ignore:"*", as:plugin
+#zplug "seebi/dircolors-solarized", ignore:"*", as:plugin
 
 # Load theme
 zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 
-zplug "plugins/common-aliase",     from:oh-my-zsh
-zplug "plugins/colored-man-pages", from:oh-my-zsh
-zplug "plugins/colorize",          from:oh-my-zsh
-zplug "plugins/command-not-found", from:oh-my-zsh
-zplug "plugins/copydir",           from:oh-my-zsh
-zplug "plugins/copyfile",          from:oh-my-zsh
-zplug "plugins/cp",                from:oh-my-zsh
-zplug "plugins/dircycle",          from:oh-my-zsh
-zplug "plugins/encode64",          from:oh-my-zsh
-zplug "plugins/extract",           from:oh-my-zsh
-zplug "plugins/history",           from:oh-my-zsh
-zplug "plugins/tmux",              from:oh-my-zsh
-zplug "plugins/tmuxinator",        from:oh-my-zsh
-zplug "plugins/urltools",          from:oh-my-zsh
-zplug "plugins/web-search",        from:oh-my-zsh
-zplug "plugins/z",                 from:oh-my-zsh
-zplug "plugins/fancy-ctrl-z",      from:oh-my-zsh
+#zplug "plugins/colorize",          from:oh-my-zsh
+#zplug "plugins/command-not-found", from:oh-my-zsh
+#zplug "plugins/dircycle",          from:oh-my-zsh
+#zplug "plugins/z",                 from:oh-my-zsh
 
-# Supports oh-my-zsh plugins and the like
-if [[ $OSTYPE = (linux)* ]]; then
-    zplug "plugins/archlinux",     from:oh-my-zsh, if:"(( $+commands[pacman] ))"
-    zplug "plugins/dnf",           from:oh-my-zsh, if:"(( $+commands[dnf] ))"
-fi
+# if [[ $OSTYPE = (darwin)* ]]; then
+#     zplug "lib/clipboard",         from:oh-my-zsh
+# fi
 
-if [[ $OSTYPE = (darwin)* ]]; then
-    zplug "lib/clipboard",         from:oh-my-zsh
-    zplug "plugins/osx",           from:oh-my-zsh
-    zplug "plugins/brew",          from:oh-my-zsh, if:"(( $+commands[brew] ))"
-    zplug "plugins/macports",      from:oh-my-zsh, if:"(( $+commands[port] ))"
-fi
-
-zplug "plugins/git",               from:oh-my-zsh, if:"(( $+commands[git] ))"
-zplug "plugins/golang",            from:oh-my-zsh, if:"(( $+commands[go] ))"
-zplug "plugins/svn",               from:oh-my-zsh, if:"(( $+commands[svn] ))"
-zplug "plugins/node",              from:oh-my-zsh, if:"(( $+commands[node] ))"
-zplug "plugins/npm",               from:oh-my-zsh, if:"(( $+commands[npm] ))"
-zplug "plugins/bundler",           from:oh-my-zsh, if:"(( $+commands[bundler] ))"
-zplug "plugins/gem",               from:oh-my-zsh, if:"(( $+commands[gem] ))"
-zplug "plugins/rbenv",             from:oh-my-zsh, if:"(( $+commands[rbenv] ))"
-zplug "plugins/rvm",               from:oh-my-zsh, if:"(( $+commands[rvm] ))"
-zplug "plugins/pip",               from:oh-my-zsh, if:"(( $+commands[pip] ))"
+#zplug "plugins/pip",               from:oh-my-zsh, if:"(( $+commands[pip] ))"
 zplug "plugins/sudo",              from:oh-my-zsh, if:"(( $+commands[sudo] ))"
-zplug "plugins/gpg-agent",         from:oh-my-zsh, if:"(( $+commands[gpg-agent] ))"
-zplug "plugins/systemd",           from:oh-my-zsh, if:"(( $+commands[systemctl] ))"
-zplug "plugins/docker",            from:oh-my-zsh, if:"(( $+commands[docker] ))"
-zplug "plugins/docker-compose",    from:oh-my-zsh, if:"(( $+commands[docker-compose] ))"
 
-#zplug "djui/alias-tips"
 zplug "hlissner/zsh-autopair", defer:2
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
@@ -202,31 +134,6 @@ else
 	alias vim='() { $(whence -p vim) $@ }'
 fi
 
-# Generic command adaptations
-alias grep='() { $(whence -p grep) --color=auto $@ }'
-alias egrep='() { $(whence -p egrep) --color=auto $@ }'
-
-# Custom helper aliases
-alias ccat='highlight -O ansi'
-alias rm='rm -v'
-
-# Directory management
-alias la='ls -a'
-alias ll='ls -l'
-alias lal='ls -al'
-alias d='dirs -v'
-alias 1='pu'
-alias 2='pu -2'
-alias 3='pu -3'
-alias 4='pu -4'
-alias 5='pu -5'
-alias 6='pu -6'
-alias 7='pu -7'
-alias 8='pu -8'
-alias 9='pu -9'
-alias pu='() { pushd $1 &> /dev/null; dirs -v; }'
-alias po='() { popd &> /dev/null; dirs -v; }'
-
 zshaddhistory() { whence ${${(z)1}[1]} >| /dev/null || return 1 }
 
 # =============================================================================
@@ -234,25 +141,25 @@ zshaddhistory() { whence ${${(z)1}[1]} >| /dev/null || return 1 }
 # =============================================================================
 
 # Common CTRL bindings.
-bindkey "^a" beginning-of-line
-bindkey "^e" end-of-line
-bindkey "^f" forward-word
-bindkey "^b" backward-word
-bindkey "^k" kill-line
-bindkey "^d" delete-char
-bindkey "^y" accept-and-hold
-bindkey "^w" backward-kill-word
-bindkey "^u" backward-kill-line
-bindkey "^R" history-incremental-pattern-search-backward
-bindkey "^F" history-incremental-pattern-search-forward
+# bindkey "^a" beginning-of-line
+# bindkey "^e" end-of-line
+# bindkey "^f" forward-word
+# bindkey "^b" backward-word
+# bindkey "^k" kill-line
+# bindkey "^d" delete-char
+# bindkey "^y" accept-and-hold
+# bindkey "^w" backward-kill-word
+# bindkey "^u" backward-kill-line
+# bindkey "^R" history-incremental-pattern-search-backward
+# bindkey "^F" history-incremental-pattern-search-forward
 
-# Do not require a space when attempting to tab-complete.
-bindkey "^i" expand-or-complete-prefix
+# # Do not require a space when attempting to tab-complete.
+# bindkey "^i" expand-or-complete-prefix
 
-# Fixes for alt-backspace and arrows keys
-bindkey '^[^?' backward-kill-word
-bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
+# # Fixes for alt-backspace and arrows keys
+# bindkey '^[^?' backward-kill-word
+# bindkey "^[[1;5C" forward-word
+# bindkey "^[[1;5D" backward-word
 #bindkey "^[[C" forward-word
 #bindkey "^[[D" backward-word
 
@@ -310,38 +217,11 @@ zstyle ":completion:*:default" list-colors ${(s.:.)LS_COLORS}
 #                                   Startup
 # =============================================================================
 
-# Load SSH and GPG agents via keychain.
-setup_agents() {
-  [[ $UID -eq 0 ]] && return
-
-  if (( $+commands[keychain] )); then
-	local -a ssh_keys gpg_keys
-	for i in ~/.ssh/**/*pub; do test -f "$i(.N:r)" && ssh_keys+=("$i(.N:r)"); done
-	gpg_keys=$(gpg -K --with-colons 2>/dev/null | awk -F : '$1 == "sec" { print $5 }')
-    if (( $#ssh_keys > 0 )) || (( $#gpg_keys > 0 )); then
-	  alias run_agents='() { $(whence -p keychain) --quiet --eval --inherit any-once --agents ssh,gpg $ssh_keys ${(f)gpg_keys} }'
-	  #[[ -t ${fd:-0} || -p /dev/stdin ]] && eval `run_agents`
-	  unalias run_agents
-    fi
-  fi
-}
-
-setup_agents
-unfunction setup_agents
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check; then
-    printf "Install plugins? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
-if zplug check "seebi/dircolors-solarized"; then
-  which gdircolors &> /dev/null && alias dircolors='() { $(whence -p gdircolors) }'
-  which dircolors &> /dev/null && \
-	  eval $(dircolors ~/.zplug/repos/seebi/dircolors-solarized/dircolors.256dark)
-fi
+# if zplug check "seebi/dircolors-solarized"; then
+#   which gdircolors &> /dev/null && alias dircolors='() { $(whence -p gdircolors) }'
+#   which dircolors &> /dev/null && \
+# 	  eval $(dircolors ~/.zplug/repos/seebi/dircolors-solarized/dircolors.256dark)
+# fi
 
 if zplug check "zsh-users/zsh-history-substring-search"; then
 	zmodload zsh/terminfo
@@ -375,17 +255,25 @@ if zplug check "zsh-users/zsh-syntax-highlighting"; then
 	ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg=yellow,bold'
 fi
 
-if zplug check "b4b4r07/enhancd"; then
-    ENHANCD_DOT_SHOW_FULLPATH=1
-	ENHANCD_DISABLE_HOME=0
-fi
+# if zplug check "b4b4r07/enhancd"; then
+#     ENHANCD_DOT_SHOW_FULLPATH=1
+# 	ENHANCD_DISABLE_HOME=0
+# fi
 
-if zplug check "b4b4r07/zsh-history-enhanced"; then
-	ZSH_HISTORY_FILE="$HISTFILE"
-    ZSH_HISTORY_FILTER="fzf:peco:percol"
-    ZSH_HISTORY_KEYBIND_GET_BY_DIR="^r"
-    ZSH_HISTORY_KEYBIND_GET_ALL="^r^a"
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check; then
+    printf "Install plugins? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
 fi
+# if zplug check "b4b4r07/zsh-history-enhanced"; then
+# 	ZSH_HISTORY_FILE="$HISTFILE"
+#     ZSH_HISTORY_FILTER="fzf:peco:percol"
+#     ZSH_HISTORY_KEYBIND_GET_BY_DIR="^r"
+#     ZSH_HISTORY_KEYBIND_GET_ALL="^r^a"
+# fi
 
 if zplug check "bhilburn/powerlevel9k"; then
     # Easily switch primary foreground/background colors
@@ -404,16 +292,16 @@ if zplug check "bhilburn/powerlevel9k"; then
     POWERLEVEL9K_ALWAYS_SHOW_CONTEXT=true
     POWERLEVEL9K_ALWAYS_SHOW_USER=false
 
-    POWERLEVEL9K_CONTEXT_TEMPLATE="\uF109 %m"
+    POWERLEVEL9K_CONTEXT_TEMPLATE="\uf179  %n"
 
     POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND="$DEFAULT_FOREGROUND"
     POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND="$DEFAULT_BACKGROUND"
     POWERLEVEL9K_CONTEXT_ROOT_FOREGROUND="$DEFAULT_FOREGROUND"
     POWERLEVEL9K_CONTEXT_ROOT_BACKGROUND="$DEFAULT_BACKGROUND"
 
-    POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR="\uE0B4"
+    POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR="\ue0bc"
     POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR="%F{$(( $DEFAULT_BACKGROUND - 2 ))}|%f"
-    POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR="\uE0B6"
+    POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR="\ue0ba "
     POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR="%F{$(( $DEFAULT_BACKGROUND - 2 ))}|%f"
 
     POWERLEVEL9K_PROMPT_ON_NEWLINE=true
@@ -424,7 +312,7 @@ if zplug check "bhilburn/powerlevel9k"; then
     POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
     #POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%F{cyan}\u256D\u2500%f"
-    #POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{014}\u2570%F{cyan}\uF460%F{073}\uF460%F{109}\uF460%f "
+    POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{014}\u2570%F{cyan}\uF460%F{073}\uF460%F{109}\uF460%f "
     #POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="╭─%f"
     #POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="╰─%F{008}\uF460 %f"
     #POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
@@ -432,7 +320,7 @@ if zplug check "bhilburn/powerlevel9k"; then
 
     POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="╭"
     #POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX="❱ "
-    POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="╰\uF460 "
+    POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="╰\uF460\uF460\uF460 "
 
     #POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context ssh root_indicator dir_writable dir )
     #POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon root_indicator context dir_writable dir vcs)
@@ -540,22 +428,17 @@ zplug load
 
 [ -d "$HOME/bin" ] && export PATH="$HOME/bin:$PATH"
 
-# Source defined functions.
-[[ -f ~/.zsh_functions ]] && source ~/.zsh_functions
+COMPLETION_WAITING_DOTS="true"
 
-# Source local customizations.
-[[ -f ~/.zsh_rclocal ]] && source ~/.zsh_rclocal
+if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
+  . ~/.config/exercism/exercism_completion.zsh
+fi
 
-# Source exports and aliases.
-[[ -f ~/.zsh_exports ]] && source ~/.zsh_exports
-[[ -f ~/.zsh_aliases ]] && source ~/.zsh_aliases
 
-#ZLE_RPROMPT_INDENT=0
-
-# vim: ft=zsh
+# User configuration
 
 #PATH updates
-export PATH="/usr/local/opt/openssl/bin:/usr/local/opt/expat/bin:/usr/local/opt/gettext/bin:$PATH"
+export PATH="/usr/local/opt/openssl/bin:/usr/local/opt/expat/bin:/usr/local/opt/gettext/bin:/Users/cjwalks/Library/Python/3.6/bin:$PATH"
 
 #SBT & JAVA
 export JAVA_HOME=$(/usr/libexec/java_home)
@@ -567,7 +450,7 @@ alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
 alias caskit='brew update; brew cask upgrade; brew cask cleanup; brew cask doctor'
 
 #Other
-alias deets="exa -bghHliSal"
+alias d="exa -bghHliSal"
 
 #SBT Projects
 alias coverage="sbt clean coverage scalastyle test:scalastyle it:scalastyle test it:test coverageReport"
@@ -581,6 +464,17 @@ perftest() {
     sbt -DrunLocal=true test
 }
 
+cjwwapptest() {
+    sbt -Dapplication.router=testRouter.Routes run
+}
+
+alias git=hub
+
+alias slugmk='DIR=${PWD##*/} && rm -rf target/universal && sbt dist-tgz && cd target/universal && mkdir slug && cd slug && tar -xvzf ../*.tgz && cd */bin && ./${DIR} -Dhttp.port=9999 -Dapplication.router=testOnlyDoNotUseInAppConf.Routes'
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/`whoami`/.sdkman"
-[[ -s "/Users/`whoami`/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/`whoami`/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="/Users/cjwalks/.sdkman"
+[[ -s "/Users/cjwalks/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/cjwalks/.sdkman/bin/sdkman-init.sh"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+

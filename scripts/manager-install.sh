@@ -17,6 +17,3 @@ echo "====== Installed sdkman ======"
 
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 echo "====== Sourcing sdkman init ======"
-
-brew tap caskroom/cask
-echo "====== Tapped caskroom ======"

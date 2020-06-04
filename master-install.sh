@@ -30,37 +30,27 @@ echo "===================================================================="
 echo "> GUI apps"
 echo "  > Aerial"
 echo "  > Atom"
-echo "  > Avira AV"
 echo "  > Caffeine"
-echo "  > Choose Wisely"
 echo "  > Docker"
-echo "  > Firefox"
+echo "  > Brave browser"
 echo "  > Google Chrome"
-echo "  > Intellij Ultimate"
-echo "  > Kitematic"
-echo "  > Opera"
-echo "  > Oversight"
+echo "  > Jetbrains toolbox"
 echo "  > Postman"
-echo "  > Robo 3T"
 echo "  > Slack"
 echo "  > Steam"
 echo "  > Virtualbox"
-echo "===================================================================="
-echo "> Set system preferences"
-echo "  > Set dock order"
-echo "  > Set touch bar settings"
+echo "  > Visual studio code"
 echo "===================================================================="
 echo "> Download customisations"
 echo "  > Powerline fonts (and install)"
 echo "  > Nerd fonts (and install)"
-echo "  > OSX Terminal themes"
-echo "  > Sublime Monokai for Intellij"
+echo "  > iTerm2 Terminal themes"
 echo "  > Suppress last logged in on shell"
 echo "===================================================================="
-echo "> Git config and SSH"
-echo "  > Copy reference .gitconfig and add specifed username and email"
-echo "  > Create a new SSH key using the specifed email"
-echo "===================================================================="
+# echo "> Git config and SSH"
+# echo "  > Copy reference .gitconfig and add specifed username and email"
+# echo "  > Create a new SSH key using the specifed email"
+# echo "===================================================================="
 
 scripts/manager-install.sh
 scripts/sdk-install.sh
@@ -68,17 +58,17 @@ scripts/tools-install.sh
 scripts/gui-apps-install.sh
 #scripts/system-settings-install.sh
 scripts/customisation-install.sh
-scripts/ssh-git-install.sh
+# scripts/ssh-git-install.sh
 
-echo "====== Copying SSH key to clipboard ======"
-more ~/.ssh/id_rsa.pub | pbcopy
+# echo "====== Copying SSH key to clipboard ======"
+# more ~/.ssh/id_rsa.pub | pbcopy
 
-echo "======================================================"
-echo "=                                                    ="
-echo "=         Your new ssh key is on the clipboard       ="
-echo "=             ready to copy into github              ="
-echo "=                                                    ="
-echo "======================================================"
+# echo "======================================================"
+# echo "=                                                    ="
+# echo "=         Your new ssh key is on the clipboard       ="
+# echo "=             ready to copy into github              ="
+# echo "=                                                    ="
+# echo "======================================================"
 
 echo "======================================================"
 echo "=                                                    ="
